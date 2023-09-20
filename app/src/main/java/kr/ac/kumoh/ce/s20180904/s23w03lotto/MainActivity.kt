@@ -2,6 +2,7 @@ package kr.ac.kumoh.ce.s20180904.s23w03lotto
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import kr.ac.kumoh.ce.s20180904.s23w03lotto.databinding.ActivityMainBinding
 import kotlin.random.Random
 import kotlin.random.Random.Default.nextInt
@@ -10,9 +11,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var main: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.i("Lifecycle!!", "onCreate()")
         //setContentView(R.layout.activity_main)
         main=ActivityMainBinding.inflate(layoutInflater)
         setContentView(main.root)
+
+
 
         main.btnGenerate.setOnClickListener{
             main.num1.text=Random.nextInt(1, 46).toString()
@@ -22,5 +26,35 @@ class MainActivity : AppCompatActivity() {
             main.num5.text=Random.nextInt(1, 46).toString()
             main.num6.text=Random.nextInt(1, 46).toString()
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.i("Lifecycle!!", "onStart()")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i("Lifecycle!!", "onResume()")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i("Lifecycle!!", "onPause()")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i("Lifecycle!!", "onStop()")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i("Lifecycle!!", "onDestroy()")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.i("Lifecycle!!", "onRestart()")
     }
 }
