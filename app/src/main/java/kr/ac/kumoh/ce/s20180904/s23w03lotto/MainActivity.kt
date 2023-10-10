@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         model.numbers.observe(this, Observer {
             setNumbersText()
         })
-
+    //dd
         main.btnGenerate.setOnClickListener {
             model.generate()
         }

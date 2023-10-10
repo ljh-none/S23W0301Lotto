@@ -9,8 +9,8 @@ import kotlin.random.Random
 class LottoViewModel : ViewModel( ) {
     //private var _numbers = intArrayOf(0, 0, 0, 0, 0, 0)
     private var _numbers = MutableLiveData<IntArray>(IntArray(6) { 0 })
-    val numbers: LiveData<IntArray>
-        get() = _numbers
+    val numbers: LiveData<IntArray> //value numbers 는 liveData<IntArray>타입
+        get() = _numbers  //코틀린문법에서 get은 값가져오는거임. 사실상 numbers=_numbers 란 거
     fun generate() {
         var num = 0
         val newNumbers = IntArray(6) { 0 }
